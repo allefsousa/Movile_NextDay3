@@ -2,10 +2,14 @@ package com.example.allef.next.movilenextday3.ui.gameinfo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.allef.next.movilenextday3.R
 import com.example.allef.next.movilenextday3.databinding.ActivityMainBinding
 import com.example.allef.next.movilenextday3.model.Game
 import com.example.allef.next.movilenextday3.utils.contentView
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 
 class GameInfoActivity : AppCompatActivity() {
@@ -27,5 +31,30 @@ class GameInfoActivity : AppCompatActivity() {
         tvrating.setOnClickListener{
             game.rating = 4.5
         }
+        testesRxJava()
+    }
+
+    fun testesRxJava(){
+        val observable = Observable.just(1,2,3)
+        val tag = "RxJava"
+        val Observer = object :Observer<Int>{
+            override fun onComplete() {
+                Log.i(tag,"OnComplete ")
+            }
+
+            override fun onSubscribe(d: Disposable) {
+                Log.i(tag,"Subscribe $d")
+            }
+
+            override fun onNext(t: Int) {
+                Log.i(tag,"Next $t")
+            }
+
+            override fun onError(e: Throwable) {
+                Log.i(tag,"Error",e)
+            }
+
+        }
+        observable.subscribe(Observer)
     }
 }
