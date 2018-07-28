@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">MovileNextDay3</string>
+    <string name="app_name">Movile Next Day 3</string>
+    <string
+        name="title_activity_game_info">GameInfoActivity</string>
+    <string name="game_information">Game Information</string>
+    <string name="game_image">Game Image</string>
+    <string name="classic">Classic</string>
+    <string name="game_name">Game Name</string>
+    <string name="image_url">Image URL</string>
+    <string name="rating">Rating</string>
 </resources>
