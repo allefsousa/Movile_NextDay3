@@ -1,10 +1,12 @@
 package com.example.allef.next.movilenextday3.ui.gameinfo
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.allef.next.movilenextday3.R
 import com.example.allef.next.movilenextday3.databinding.ActivityMainBinding
+import com.example.allef.next.movilenextday3.gameadd.GameAddActivity
 import com.example.allef.next.movilenextday3.model.Game
 import com.example.allef.next.movilenextday3.utils.contentView
 import io.reactivex.Observable
@@ -31,7 +33,11 @@ class GameInfoActivity : AppCompatActivity() {
         tvrating.setOnClickListener{
             game.rating = 4.5
         }
-        testesRxJava()
+        //testesRxJava()
+        fabAdd.setOnClickListener{
+            val intent = Intent(this,GameAddActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun testesRxJava(){
@@ -66,4 +72,5 @@ class GameInfoActivity : AppCompatActivity() {
 
 
     }
+
 }
