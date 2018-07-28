@@ -6,6 +6,7 @@ import com.example.allef.next.movilenextday3.R
 import com.example.allef.next.movilenextday3.databinding.ActivityMainBinding
 import com.example.allef.next.movilenextday3.model.Game
 import com.example.allef.next.movilenextday3.utils.contentView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class GameInfoActivity : AppCompatActivity() {
 
@@ -20,8 +21,11 @@ class GameInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val game = Game("Donkey Kong",1992,"http://www.classicgaming.cc/classics/donkey-kong/images/logo-donkey-kong.png")
+        val game = Game("Donkey Kong",1994,"http://www.classicgaming.cc/classics/donkey-kong/images/logo-donkey-kong.png",2.0)
         binding.game = game
 
+        tvrating.setOnClickListener{
+            game.rating = 4.5
+        }
     }
 }
