@@ -35,26 +35,35 @@ class GameInfoActivity : AppCompatActivity() {
     }
 
     fun testesRxJava(){
-        val observable = Observable.just(1,2,3)
+//        val observable = Observable.just(1,2,3)// MainThered
         val tag = "RxJava"
-        val Observer = object :Observer<Int>{
-            override fun onComplete() {
-                Log.i(tag,"OnComplete ")
-            }
+//        val Observer = object :Observer<Int>{
+//            override fun onComplete() {
+//                Log.i(tag,"OnComplete ")
+//            }
+//
+//            override fun onSubscribe(d: Disposable) {
+//                Log.i(tag,"Subscribe $d")
+//            }
+//
+//            override fun onNext(t: Int) {
+//                Log.i(tag,"Next $t")
+//            }
+//
+//            override fun onError(e: Throwable) {
+//                Log.i(tag,"Error",e)
+//            }
+//
+//        }
+//        observable.subscribe(Observer)
+        //declaração simplificada do metodo onNext
+//        observable.subscribe({Log.i(tag,"OnNext diferente $it")})
 
-            override fun onSubscribe(d: Disposable) {
-                Log.i(tag,"Subscribe $d")
-            }
+        Observable.just(1,2,3)
+                .map { it*2 } // multiplicando elementos da lista
+                .filter { it<6 } // filtrando elementos menores que 6
+                .subscribe({Log.i(tag,"OnNext diferente $it")})
 
-            override fun onNext(t: Int) {
-                Log.i(tag,"Next $t")
-            }
 
-            override fun onError(e: Throwable) {
-                Log.i(tag,"Error",e)
-            }
-
-        }
-        observable.subscribe(Observer)
     }
 }
