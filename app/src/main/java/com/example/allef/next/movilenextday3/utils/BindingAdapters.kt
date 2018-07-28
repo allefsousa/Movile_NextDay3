@@ -4,7 +4,13 @@ import android.databinding.BindingAdapter
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
-@BindingAdapter("image")
-fun loadImage(imageView: ImageView, imageUrl: String?){
-    Picasso.get().load(imageUrl).into(imageView)
+
+class BindingAdapters{
+    companion object { // metodo statico
+        @JvmStatic @BindingAdapter("image")
+        fun loadImage(imageView: ImageView, imageUrl: String?){
+            Picasso.get().load(imageUrl).into(imageView)
+        }
+    }
+
 }
